@@ -5,5 +5,6 @@ import io.smartir.DesignPatterns.FactoryPattern.Pizza;
 public class NYCheesePizza extends Pizza {
     public NYCheesePizza() {
         name = "NYCheesePizza";
+        toppings.add("NYJimi");
     }
 }

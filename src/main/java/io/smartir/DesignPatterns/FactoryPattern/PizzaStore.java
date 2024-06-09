@@ -1,16 +1,12 @@
 package io.smartir.DesignPatterns.FactoryPattern;
 
 
-public class PizzaStore {
-    SimplePizzaFactory simplePizzaFactory;
+public abstract class PizzaStore {
 
-    public PizzaStore(SimplePizzaFactory simplePizzaFactory) {
-        this.simplePizzaFactory = simplePizzaFactory;
-    }
 
     public Pizza orderPizza(String type) {
         Pizza pizza;
-        pizza = simplePizzaFactory.createPizza(type);
+        pizza = createPizza(type);
         pizza.prepare();
         pizza.bake();
         pizza.cut();
@@ -18,7 +14,5 @@ public class PizzaStore {
         return pizza;
     }
 
-//    protected abstract Pizza createPizza(String type);
-//
-//    protected abstract void orderPizza();
+    protected abstract Pizza createPizza(String type);
 }
