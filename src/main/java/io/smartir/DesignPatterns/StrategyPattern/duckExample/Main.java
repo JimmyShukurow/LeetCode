@@ -1,6 +1,9 @@
 package io.smartir.DesignPatterns.StrategyPattern.duckExample;
 
+import io.smartir.DesignPatterns.StrategyPattern.duckExample.behaviors.fly.FlyNoWay;
 import io.smartir.DesignPatterns.StrategyPattern.duckExample.behaviors.fly.FlyRocketBehavior;
+
+import java.util.List;
 
 public class Main {
     public static void main(String[] args) {
@@ -18,5 +21,7 @@ public class Main {
         modelDuck.performQuack();
         modelDuck.setFlyBehavior(new FlyRocketBehavior());
         modelDuck.performFly();
+
+        System.out.println(List.of(MallardDuck.class.getSimpleName(), FlyNoWay.class.getSimpleName()));
     }
 }
