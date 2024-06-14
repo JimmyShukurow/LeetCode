@@ -1,9 +1,15 @@
 package io.smartir.leetcode.DSA.easy;
 
+import java.util.ArrayList;
+import java.util.List;
+
 public class LeetCode14 {
     public static void main(String[] args) {
         System.out.println(compareTwoStrings("flower", "flow"));
         System.out.println(longestCommonPrefix(new String[]{"abab", "aba", "abc"}));
+        StringBuilder builder = new StringBuilder();
+        List<String> words = new ArrayList<>();
+        words.forEach(builder::append);
     }
 
     public static String longestCommonPrefix(String[] strs) {
