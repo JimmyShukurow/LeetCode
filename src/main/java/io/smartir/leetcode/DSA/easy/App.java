@@ -25,6 +25,13 @@ public interface App {
         var json = new JSONObject(jsonString);
         System.out.println(jsonString);
 
+        int a = 10, b =5;
+        double c = 10.0;
+        System.out.println(c%2 == 0?"Even":"Odd" );
+        String str1 = new String("Hello");
+        String str2 = str1;
+        str1 = "World";
+        System.out.println(str2);
     }
 
     static void add(long number){
