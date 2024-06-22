@@ -1,0 +1,6 @@
+SELECT email
+FROM
+(SELECT email, COUNT(ID) as cnt
+FROM Person
+GROUP BY email
+HAVING cnt>1) as temp;

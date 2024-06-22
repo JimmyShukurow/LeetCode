@@ -1,0 +1,4 @@
+SELECT w.ID
+FROM Weather w
+LEFT JOIN Weather q ON w.recordDate-1 = q.recordDate
+WHERE w.temperature > q.temperature;

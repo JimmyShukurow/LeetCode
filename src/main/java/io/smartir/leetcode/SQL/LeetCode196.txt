@@ -1,0 +1,8 @@
+DELETE FROM Person
+WHERE Id IN (
+    SELECT p.Id
+    FROM Person p
+    JOIN Person q
+    ON p.Email = q.Email
+    WHERE p.Id > q.Id
+);
