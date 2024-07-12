@@ -58,7 +58,6 @@ public class MyClientrSocket extends Application {
             } catch (IOException ex) {
                 System.out.println(ex.getMessage());
             }
-
         });
     }
 }

@@ -1,9 +1,5 @@
 package io.smartir.leetcode.DSA.easy;
 
-import java.util.ArrayList;
-import java.util.List;
-import java.util.Optional;
-
 public class LeetCode101 {
     public boolean isSymmetric(TreeNode root) {
         if(root==null)

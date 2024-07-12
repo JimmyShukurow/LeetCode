@@ -1,4 +1,4 @@
-package io.smartir.leetcode.DSA.easy;
+package io.smartir.leetcode.DSA.medium;
 
 public class ListNode {
     int val;

@@ -1,7 +1,5 @@
 package io.smartir.leetcode.DSA.easy;
 
-import java.util.List;
-
 public class LeetCode21 {
     public static void main(String[] args) {
 
