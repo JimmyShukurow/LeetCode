@@ -1,17 +1,34 @@
 package io.smartir.leetcode.DSA.medium;
 
+import java.util.ArrayList;
+import java.util.Comparator;
+import java.util.List;
+
 public class LeetCode45 {
+    int ans = 0;
+
     public int jump(int[] nums) {
-        int steps = 1;
-        return innerJump(nums, 0, nums[0], nums.length - nums[0], steps);
+        int i = 0;
+        while (i < nums.length - 1) {
+            i = helper(i, nums[i], nums);
+
+        }
+        return ans;
     }
 
-    public int innerJump(int[] nums,int startPoint, int endPoint, int length, int steps) {
-        for (int i = startPoint+1; i < startPoint+endPoint+1; i++) {
-            if ( length - nums[i] == 0) return ++steps;
-            if ( length - nums[i] < 0) return steps;
-            steps += innerJump(nums, i, nums[i], length - nums[i], steps);
+    public int helper(int a, int b, int[] nums) {
+        ans++;
+        if (a + b >= nums.length - 1) {
+            return nums.length;
         }
-        return steps;
+        int max = Integer.MIN_VALUE;
+        int temp = 0;
+        for (int i = a; i <= a + b; i++) {
+            if (nums[i] + i >= max) {
+                temp = i;
+                max = nums[i] + i;
+            }
+        }
+        return temp;
     }
 }
