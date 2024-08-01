@@ -12,10 +12,11 @@ public class TaskThreadDemo {
         Thread thread1 = new Thread(printA);
         Thread thread2 = new Thread(printB);
         Thread thread3 = new Thread(print100);
-
         thread1.start();
         thread2.start();
         thread3.start();
-        new Thread(r).start();
+        Thread run = new Thread(r);
+        run.setDaemon(true);
+        run.start();
     }
 }
