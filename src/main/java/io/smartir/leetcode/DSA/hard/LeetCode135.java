@@ -1,7 +1,6 @@
-package io.smartir.leetcode.DSA.medium;
+package io.smartir.leetcode.DSA.hard;
 
 import java.util.Arrays;
-import java.util.stream.IntStream;
 
 public class LeetCode135 {
     public int candy(int[] ratings) {

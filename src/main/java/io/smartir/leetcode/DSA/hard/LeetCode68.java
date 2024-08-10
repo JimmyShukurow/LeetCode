@@ -1,4 +1,4 @@
-package io.smartir.leetcode.DSA.medium;
+package io.smartir.leetcode.DSA.hard;
 
 import java.util.ArrayList;
 import java.util.List;

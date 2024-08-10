@@ -7,6 +7,7 @@ import java.nio.file.attribute.PosixFilePermission;
 import java.util.Arrays;
 import java.util.Set;
 import java.util.concurrent.ConcurrentHashMap;
+import java.util.concurrent.atomic.AtomicInteger;
 
 public interface App {
     ConcurrentHashMap<String, Long> list = new ConcurrentHashMap<>();
@@ -19,8 +20,10 @@ public interface App {
 //                """;
 //        var path = Files.writeString(Path.of("hello.sh"), script);
 //        Files.setPosixFilePermissions(path, Set.of(PosixFilePermission.OWNER_READ, PosixFilePermission.OWNER_EXECUTE));
-        Integer[] jimi = new Integer[5];
-        System.out.println(Arrays.toString(jimi));
+        AtomicInteger atomicInt = new AtomicInteger(5);
+        System.out.println(atomicInt.addAndGet(10));
+        System.out.println(atomicInt.getAndAdd(5));
+        System.out.println(atomicInt.get());
     }
 
 }

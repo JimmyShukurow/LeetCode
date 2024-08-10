@@ -1,4 +1,4 @@
-package io.smartir.leetcode.DSA.medium;
+package io.smartir.leetcode.DSA.hard;
 
 public class LeetCode42 {
     public int trap(int[] height) {
