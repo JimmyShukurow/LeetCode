@@ -5,21 +5,13 @@ public class LeetCode27 {
 
     }
     public int removeElement(int[] nums, int val) {
-        int counter = 0;
-        for (int i = 0; i < nums.length; i++) {
-            if (nums[i] == val) counter++;
-        }
-        int[] newNums = new int[nums.length - counter];
-        int starter = 0;
-        for (int i = 0; i < nums.length; i++) {
-            if (nums[i] != val) {
-                newNums[starter] = nums[i];
-                starter++;
+        int left = 0;
+        for (int right = 0; right < nums.length; right++) {
+            if (nums[right] != val) {
+                nums[left] = nums[right];
+                left++;
             }
         }
-        for (int i = 0; i < newNums.length; i++) {
-            nums[i] = newNums[i];
-        }
-        return newNums.length;
+        return left + 1;
     }
 }
