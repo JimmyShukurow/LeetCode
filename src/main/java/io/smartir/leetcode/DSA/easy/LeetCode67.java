@@ -3,46 +3,72 @@ package io.smartir.leetcode.DSA.easy;
 public class LeetCode67 {
 
     public String addBinary(String a, String b) {
-        int first = a.length() - 1, second = b.length() - 1, carryOver = 0;
-        StringBuilder builder = new StringBuilder();
-        while (first >= 0 && second >= 0) {
-            int lineSum = Character.getNumericValue(a.charAt(first)) + Character.getNumericValue(b.charAt(second)) + carryOver;
-            if (lineSum == 3) {
-                builder.insert(0, "1");
-                carryOver = 1;
-            } else if (lineSum == 2) {
-                builder.insert(0, "0");
-                carryOver = 1;
-            } else {
-                builder.insert(0, lineSum);
-                carryOver = 0;
+        int carry = 0;
+        int firstLength = a.length()-1;
+        int secondLength = b.length()-1;
+        StringBuilder result = new StringBuilder();
+        while (firstLength >= 0 && secondLength >= 0) {
+            var curr = (a.charAt(firstLength) - '0') + (b.charAt(secondLength) - '0') + carry;
+            if(curr ==0) {
+                result.insert(0, '0');
             }
-            first--;
-            second--;
-        }
-        while (first >= 0) {
-            int lineSum = Character.getNumericValue(a.charAt(first)) + carryOver;
-            if (lineSum == 2) {
-                builder.insert(0, "0");
-                carryOver = 1;
-            } else {
-                builder.insert(0, lineSum);
-                carryOver = 0;
+            if (curr==1) {
+                result.insert(0, '1');
+                carry = 0;
             }
-            first--;
-        }
-        while (second >= 0) {
-            int lineSum = Character.getNumericValue(b.charAt(second)) + carryOver;
-            if (lineSum == 2) {
-                builder.insert(0, "0");
-                carryOver = 1;
-            } else {
-                builder.insert(0, lineSum);
-                carryOver = 0;
+            if (curr==2) {
+                result.insert(0, '0');
+                carry = 1;
             }
-            second--;
+            if (curr==3) {
+                result.insert(0, '1');
+                carry = 1;
+            }
+            firstLength--;
+            secondLength--;
         }
-        if (carryOver == 1) builder.insert(0, carryOver);
-        return builder.toString();
+
+        while (firstLength >= 0 ) {
+            var curr = (a.charAt(firstLength) - '0')  + carry;
+            if(curr ==0) {
+                result.insert(0, '0');
+            }
+            if (curr==1) {
+                result.insert(0, '1');
+                carry = 0;
+            }
+            if (curr==2) {
+                result.insert(0, '0');
+                carry = 1;
+            }
+            if (curr==3) {
+                result.insert(0, '1');
+                carry = 1;
+            }
+            firstLength--;
+        }
+
+        while (secondLength >= 0 ) {
+            var curr = (b.charAt(secondLength) - '0')  + carry;
+            if(curr ==0) {
+                result.insert(0, '0');
+            }
+            if (curr==1) {
+                result.insert(0, '1');
+                carry = 0;
+            }
+            if (curr==2) {
+                result.insert(0, '0');
+                carry = 1;
+            }
+            if (curr==3) {
+                result.insert(0, '1');
+                carry = 1;
+            }
+            secondLength--;
+        }
+        if (carry ==1) result.insert(0, '1');
+
+        return result.toString();
     }
 }

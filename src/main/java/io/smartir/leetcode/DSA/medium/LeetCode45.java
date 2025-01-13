@@ -1,9 +1,5 @@
 package io.smartir.leetcode.DSA.medium;
 
-import java.util.ArrayList;
-import java.util.Comparator;
-import java.util.List;
-
 public class LeetCode45 {
     int ans = 0;
 
@@ -31,4 +27,6 @@ public class LeetCode45 {
         }
         return temp;
     }
+
+
 }

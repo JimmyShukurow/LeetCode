@@ -1,6 +1,7 @@
 package io.smartir.leetcode.DSA.easy;
 
 import java.io.IOException;
+import java.math.BigInteger;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Map;
@@ -33,9 +34,14 @@ public interface App {
         test.put("2", "jimi");
         test.put("3", "keloglan");
         test.put("4", "shukurov");
-        System.out.println(new ArrayList<>(test.keySet()));
-        System.out.println(test.remove("10"));
-        System.out.println(new ArrayList<>(test.keySet()));
-    }
+        System.out.println(test);
+        if (test.get("1").equals("testw")) test.remove("1");
+        for (Map.Entry<String, String> entry : test.entrySet()) {
+            entry.getValue();
+        }
+        System.out.println(test);
+        Stack<Integer> jimi = new Stack<>();
 
+        System.out.println("max is=>"+Math.max(2,2));
+    }
 }
