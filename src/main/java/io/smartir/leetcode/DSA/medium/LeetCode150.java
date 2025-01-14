@@ -1,48 +1,32 @@
 package io.smartir.leetcode.DSA.medium;
 
-import java.util.List;
 import java.util.Stack;
 
 public class LeetCode150 {
-    //Not mine solution
-    private int idx;
     public int evalRPN(String[] tokens) {
-        idx = tokens.length - 1;
-        return eval(tokens);
+        Stack<Integer> stack = new Stack<>();
+        for (String token : tokens) {
+            if (token.equals("+")) {
+                int a = stack.pop();
+                int b = stack.pop();
+                stack.push(a + b);
+            } else if (token.equals("-")) {
+                int a = stack.pop();
+                int b = stack.pop();
+                stack.push(b - a);
+            } else if (token.equals("*")) {
+                int a = stack.pop();
+                int b = stack.pop();
+                stack.push(a * b);
+            } else if (token.equals("/")) {
+                int a = stack.pop();
+                int b = stack.pop();
+                stack.push(b / a);
+            } else {
+                stack.push(Integer.parseInt(token));
+            }
+        }
+        return stack.pop();
     }
 
-    private int eval (String[] tokens) {
-        int num = 0, i = 0;
-        String e = tokens[idx--];
-        char c = e.charAt(0);
-        if (e.length() == 1) {
-            if (c == '+') {
-                num = eval(tokens);
-                return eval(tokens) + num;
-            } else if (c == '-') {
-                num = eval(tokens);
-                return eval(tokens) - num;
-            } else if (c == '*') {
-                num = eval(tokens);
-                return eval(tokens) * num;
-            } else if (c == '/') {
-                num = eval(tokens);
-                return eval(tokens) / num;
-            }
-            return c - '0';
-        } else {
-            int sign = 1;
-            if (c == '-') {
-                sign = -1;
-                c = e.charAt(++i);
-            }
-            num = c - '0';
-            i++;
-            while (i < e.length()) {
-                c = e.charAt(i++);
-                num = num*10 + (c - '0');
-            }
-            return sign*num;
-        }
-    }
 }
