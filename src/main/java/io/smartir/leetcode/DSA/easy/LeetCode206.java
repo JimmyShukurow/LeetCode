@@ -2,17 +2,14 @@ package io.smartir.leetcode.DSA.easy;
 
 public class LeetCode206 {
     public ListNode reverseList(ListNode head) {
-        ListNode prev = null;
-        ListNode next = null;
-        ListNode curr = head;
-
-        while (curr != null) {
-            next = curr.next;
+        ListNode resutl = null;
+        while (head != null){
+            ListNode prev = resutl;
+            ListNode curr = new ListNode(head.val,head.next);
             curr.next = prev;
-            prev = curr;
-            curr = next;
+            resutl = curr;
+            head = head.next;
         }
-
-        return prev;
+        return resutl;
     }
 }
