@@ -2,34 +2,22 @@ package io.smartir.binarySearchTree;
 
 
 import io.smartir.leetcode.DSA.medium.ListNode;
+import io.smartir.leetcode.Utils.TreeCreator;
 
 public class Main {
 
     public static void main(String[] args) {
-        int[] arr = {1, 2, 3, 4, 5};
-        ListNode head = new ListNode(arr[0]);
-        ListNode result = head;
-        ListNode copyHead = head;
-        for (int i = 1; i < arr.length; i++) {
-            head.next = new ListNode(arr[i]);
-            head = head.next;
-        }
-        while (result != null) {
-            System.out.print("(" + result.val + ")->");
-            result = result.next;
-        }
-        System.out.println();
-        ListNode reversed = reverseLinkedList(copyHead);
-        System.out.println("Reversed");
-        while (reversed != null) {
-            System.out.print("(" + reversed.val + ")->");
-            reversed = reversed.next;
-        }
+
+        Integer[] test = {1, 2, 3, 4, 5, 6, 7, 8, 9, null, 10};
+        TreeCreator creator = new TreeCreator();
+        creator.createBinaryTree(test);
+        creator.displayTree();
+
     }
 
     public static ListNode reverseLinkedList(ListNode head) {
         ListNode prev = null;
-        ListNode curr =head;
+        ListNode curr = head;
         ListNode next;
         while (curr != null) {
             next = curr.next;
