@@ -20,9 +20,9 @@ public class LeetCode103 {
                 if (queue.peek().right != null) queue.offer(queue.peek().right);
                 temp.add(queue.poll().val);
             }
-            if (isLeftToRight) temp = temp.reversed();
-            ans.add(temp);
-            isLeftToRight = !isLeftToRight;
+//            if (isLeftToRight) temp = temp.reversed();
+//            ans.add(temp);
+//            isLeftToRight = !isLeftToRight;
         }
         return ans;
     }
