@@ -3,41 +3,27 @@ package io.smartir.leetcode.DSA.medium;
 import java.util.ArrayList;
 import java.util.List;
 
-public class LeetCode39 {
-    List<List<Integer>> result = new ArrayList<>();
+class LeetCode39 {
     public List<List<Integer>> combinationSum(int[] candidates, int target) {
+        List<List<Integer>> res = new ArrayList<>();
 
-        int[] sorted = candidates.clone();
-        for (int i = 0; i < sorted.length; i++) {
-            for (int j = i + 1; j < sorted.length; j++) {
-                if (sorted[i] > sorted[j]) {
-                    int temp = sorted[i];
-                    sorted[i] = sorted[j];
-                    sorted[j] = temp;
-                }
-            }
-        }
-
-        if (candidates.length == 1 && candidates[0] != target) {
-            return result;
-        }
-        backtrack(new ArrayList<>(), 0, target, candidates);
-        return result;
+        makeCombination(candidates, target, 0, new ArrayList<>(), 0, res);
+        return res;
     }
 
-    private void backtrack(List<Integer> input, int index, int target, int[] candidates) {
-        int sum = input.stream().mapToInt(Integer::intValue).sum();
-        if (sum == target) {
-            result.add(input);
+    private void makeCombination(int[] candidates, int target, int idx, List<Integer> comb, int total, List<List<Integer>> res) {
+        if (total == target) {
+            res.add(new ArrayList<>(comb));
             return;
         }
-        if (sum > target || index >= candidates.length) {
+
+        if (total > target || idx >= candidates.length) {
             return;
         }
-        for (int i = index; i < candidates.length; i++) {
-            List<Integer> temp = new ArrayList<>(input);
-            temp.add(candidates[i]);
-            backtrack(temp, index + 1, target, candidates);
-        }
+
+        comb.add(candidates[idx]);
+        makeCombination(candidates, target, idx, comb, total + candidates[idx], res);
+        comb.remove(comb.size() - 1);
+        makeCombination(candidates, target, idx + 1, comb, total, res);
     }
 }
