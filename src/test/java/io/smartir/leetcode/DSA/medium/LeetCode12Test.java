@@ -2,7 +2,6 @@ package io.smartir.leetcode.DSA.medium;
 
 import org.junit.jupiter.api.Test;
 
-import static org.junit.jupiter.api.Assertions.*;
 import static org.assertj.core.api.AssertionsForClassTypes.assertThat;
 
 class LeetCode12Test {
