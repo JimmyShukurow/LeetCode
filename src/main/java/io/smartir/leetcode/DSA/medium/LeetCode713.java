@@ -1,6 +1,5 @@
 package io.smartir.leetcode.DSA.medium;
 
-import java.util.Arrays;
 
 public class LeetCode713 {
     public int numSubarrayProductLessThanK(int[] nums, int k) {
